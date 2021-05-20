@@ -1,8 +1,6 @@
-  
-#include "func.h"
+#include "func_2.h"
 int main() {
     deque<mokinys> p;
-    deque<mokinys> k;
     deque<mokinys> l;
 
     bool isValidInput;
@@ -55,8 +53,8 @@ int main() {
         getAverages(p);
         getMedians(p);
         sort(p.begin(), p.end(), compare);
-        sortByCool(k, l, p);
-        writeEverything(k, l);
+        sortByCool(p, l);
+        writeEverything(p, l);
     } else if (input == "1") {
         string inputFileName = "";
         cout<<"Prasome pateikti failo pavadinima"<<endl;
@@ -66,8 +64,8 @@ int main() {
         getMedians(p);
         cout<<"Sorting..."<<endl;
         sort(p.begin(), p.end(), compare);
-        sortByCool(k, l, p);
-        writeEverything(k, l);
+        sortByCool(p, l);
+        writeEverything(p, l);
         cout<<"Done."<<endl;
     } else if (input == "2") {
         auto start_main = std::chrono::steady_clock::now();
@@ -86,8 +84,8 @@ int main() {
         sort(p.begin(), p.end(), compare);
         auto ending = std::chrono::steady_clock::now();
         cout<<"Done in : "<<std::chrono::duration <double, milli>(ending - start).count()<<" ms"<<endl;
-        sortByCool(k, l, p);
-        writeEverything(k, l);
+        sortByCool(p, l);
+        writeEverything(p, l);
         auto ending_main = std::chrono::steady_clock::now();
         cout<<"Done. Time elapsed : "<<std::chrono::duration <double, milli>(ending_main - start_main).count()<<" ms"<<endl;
     } else {

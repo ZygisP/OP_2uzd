@@ -1,10 +1,7 @@
-  
-#include "func.h"
+#include "func_vec_2.h"
 int main() {
-    deque<mokinys> p;
-    deque<mokinys> k;
-    deque<mokinys> l;
-
+    vector<mokinys> p;
+    vector<mokinys> l;
     bool isValidInput;
 
     string input;
@@ -35,17 +32,18 @@ int main() {
             }
             for(int j=0;; j++){
                 cout<<"Iveskite "<<i+1<<" mokinio "<<j<<" namu darbo rezultata"<<endl;
-                cin>>value_d;
-                if(value_d != 0) {
+                cin>>value;
+                if(isDouble(value) && value != "0") { // 0 breaks us, letter fucks us
                     p[i].nd.push_back(double());
+                    value_d = stod(value);
                     p[i].nd[j] = value_d;
                 } else {
                     break;
                 }
             }
             cout<<"Iveskite "<<i+1<<" mokinio egzamino rezultata"<<endl;
-            cin>>value_d;
-            if(value_d != 0) {
+            cin>>value;
+            if(isDouble(value) && value != "0") {
                 p[i].egzaminas = value_d;
             } else {
                 break;
@@ -55,8 +53,8 @@ int main() {
         getAverages(p);
         getMedians(p);
         sort(p.begin(), p.end(), compare);
-        sortByCool(k, l, p);
-        writeEverything(k, l);
+        sortByCool(p, l);
+        writeEverything(p, l);
     } else if (input == "1") {
         string inputFileName = "";
         cout<<"Prasome pateikti failo pavadinima"<<endl;
@@ -66,10 +64,10 @@ int main() {
         getMedians(p);
         cout<<"Sorting..."<<endl;
         sort(p.begin(), p.end(), compare);
-        sortByCool(k, l, p);
-        writeEverything(k, l);
+        sortByCool(p, l);
+        writeEverything(p, l);
         cout<<"Done."<<endl;
-    } else if (input == "2") {
+    } else if (input == "2"){
         auto start_main = std::chrono::steady_clock::now();
         int nOfNd = 0;
         int nOfStudents = 0;
@@ -86,8 +84,8 @@ int main() {
         sort(p.begin(), p.end(), compare);
         auto ending = std::chrono::steady_clock::now();
         cout<<"Done in : "<<std::chrono::duration <double, milli>(ending - start).count()<<" ms"<<endl;
-        sortByCool(k, l, p);
-        writeEverything(k, l);
+        sortByCool(p, l);
+        writeEverything(p, l);
         auto ending_main = std::chrono::steady_clock::now();
         cout<<"Done. Time elapsed : "<<std::chrono::duration <double, milli>(ending_main - start_main).count()<<" ms"<<endl;
     } else {

@@ -1,94 +1,159 @@
 #include<iostream>
 #include<vector>
 #include<iomanip>
-#include<string>
-
+#include<fstream>
+#include <algorithm>
+using std::string;
+using std::vector;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::sort;
+using std::left;
+using std::fixed;
+using std::streamsize;
+using std::ifstream;
+using std::ofstream;
+using std::setprecision;
 struct Studentas {
-    std::string vardas;
-    std::string pavarde;
+    string vardas;
+    string pavarde;
     double egz;
-    std::vector<double> nd;
+    vector<double> nd;
     double vidurkis;
     double mediana;
 };
-double getAverage(std::vector<Studentas> v, int index) {
+void getAverages(vector<Studentas> &v) {
     double sum = 0;
-    for(int i=0; i<v[index].nd.size(); i++){
-        sum += v[index].nd[i];
+    for(int i=0; i<v.size(); i++){
+        sum = 0;
+        for(int j=0; j<v[i].nd.size(); j++){
+            sum+=v[i].nd[j];
+        }
+        v[i].vidurkis = sum/v[i].nd.size();
     }
-    return sum/v.size();
 }
-double getMedian(std::vector<Studentas> v, int index) {
-    int n = v[index].nd.size();
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(v[index].nd[i]<v[index].nd[j]){
-                double temp = v[index].nd[i];
-                v[index].nd[i] = v[index].nd[j];
-                v[index].nd[j] = temp;
+bool compare(const Studentas &first, const Studentas &second){
+	return (first.vardas < second.vardas ||
+         (first.vardas == second.vardas && first.pavarde < second.pavarde));
+}
+void getMedians(vector<Studentas> &v) {
+    for(int x=0; x<v.size(); x++){
+        int n = v[x].nd.size();
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(v[x].nd[i]<v[x].nd[j]){
+                    double temp = v[x].nd[i];
+                    v[x].nd[i] = v[x].nd[j];
+                    v[x].nd[j] = temp;
+                }
             }
         }
-    }
-    for(int i=0;i<n;i++){
-        std::cout<<v[index].nd[i]<<std::endl;
-    }
-    if(n%2 == 1){
-        return v[index].nd[n/2];
-    } else {
-        return (v[index].nd[n/2] + v[index].nd[(n/2)-1]) / 2;
+        if(n%2 == 1){
+            v[x].mediana = v[x].nd[n/2];
+        } else {
+            v[x].mediana = (v[x].nd[n/2] + v[x].nd[(n/2)-1]) / 2;
+        }
     }
 }
-void writeEverything(std::vector<Studentas> v) {
-    v.pop_back();
-    std::cout<<std::endl;
-    for(int i=0;i<v.size(); i++){
-        std::cout<<"Vardas : "<<v[i].vardas<<std::endl;
-        std::cout<<"Pavarde : "<<v[i].pavarde<<std::endl;
-        std::cout<<"Vidurkis : "<<std::fixed<<std::setprecision(2)<<v[i].vidurkis<<std::endl;
-        std::cout<<"Mediana : "<<v[i].mediana<<std::endl;
-        std::cout<<"Egzamino Rezultatas : "<<v[i].egz<<std::endl;
+void writeEverything(vector<Studentas> v) {
+    ofstream offile ("res.txt");
+    offile.width(15);
+    offile << left << "Vardas";
+    offile.width(15);
+    offile << left << "Pavarde";
+    offile.width(20);
+    offile << left << "Galutinis (Vid.)";
+    offile.width(20);
+    offile << left << "Galutinis (Med.)"<<endl;
+    for (int n = 0; n < 70; n++) offile << "-";
+    offile<<endl;
+    for(int i=0; i < v.size(); i++) {
+        offile.width(15);
+        offile << left << v[i].vardas;
+        offile.width(15);
+        offile << left << v[i].pavarde;
+        offile.width(20);
+        offile << fixed << setprecision(2) << v[i].vidurkis;
+        offile.width(20);
+        offile << fixed << setprecision(2) << v[i].mediana<<endl;
     }
 }
 int main() {
-    std::vector<Studentas> v;
-    std::string input;
-    double input_d;
-    for(int i=0;; i++){
-        v.push_back(Studentas());
-        std::cout<<"Iveskite "<<i+1<<" mokinio varda"<<std::endl;
-        std::cin>>input;
-        if(input != "0") {
-            v[i].vardas = input;
-        } else {
-            break;
-        }
-        std::cout<<"Iveskite "<<i+1<<" mokinio pavarde"<<std::endl;
-        std::cin>>input;
-        if(input != "0") {
-            v[i].pavarde = input;
-        } else {
-            break;
-        }
-        for(int j=0;; j++){
-            std::cout<<"Iveskite "<<i+1<<" mokinio "<<j<<" namu darbo rezultata"<<std::endl;
-            std::cin>>input_d;
-            if(input_d != 0) {
-                v[i].nd.push_back(double());
-                v[i].nd[j] = input_d;
+    vector<Studentas> v;
+    string value;
+    double value_d;
+
+    int input = 0;
+    cout<<"Pasirinkite ivedimo buda :"<<endl;
+    cout<<"0 - ivedimas ranka"<<endl;
+    cout<<"1 - ivedimas failu"<<endl;
+    cin>>input;
+    if(!input){
+        for(int i=0;; i++){
+            v.push_back(Studentas());
+            cout<<"Iveskite "<<i+1<<" mokinio varda"<<endl;
+            cin>>value;
+            if(value != "0") {
+                v[i].vardas = value;
+            } else {
+                break;
+            }
+            cout<<"Iveskite "<<i+1<<" mokinio pavarde"<<endl;
+            cin>>value;
+            if(value != "0") {
+                v[i].pavarde = value;
+            } else {
+                break;
+            }
+            for(int j=0;; j++){
+                cout<<"Iveskite "<<i+1<<" mokinio "<<j<<" namu darbo rezultata"<<endl;
+                cin>>value_d;
+                if(value_d != 0) {
+                    v[i].nd.push_back(double());
+                    v[i].nd[j] = value_d;
+                } else {
+                    break;
+                }
+            }
+            cout<<"Iveskite "<<i+1<<" mokinio egzamino rezultata"<<endl;
+            cin>>value_d;
+            if(value_d != 0) {
+                v[i].egz = value_d;
             } else {
                 break;
             }
         }
-        std::cout<<"Iveskite "<<i+1<<" mokinio egzamino rezultata"<<std::endl;
-        std::cin>>input_d;
-        if(input_d != 0) {
-            v[i].egz = input_d;
-        } else {
-            break;
+        v.pop_back();
+        getAverages(v);
+        getMedians(v);
+        sort(v.begin(), v.end(), compare);
+        writeEverything(v);
+    } else {
+        ifstream infile("studentai10000.txt");
+        string value = "";
+        infile>>value>>value>>value;
+        int nOfNd= 0;
+        while(value[0] == 'N'){
+            infile>>value;
+            nOfNd++;
         }
-
-        v[i].vidurkis = getAverage(v, i);
-        v[i].mediana = getMedian(v, i);
+        cout<<"Reading..."<<endl;
+        for(int i=0;;i++){
+            //if(i%10000==0) cout<<i<<endl;
+            if(infile.eof()) break;
+            v.push_back(Studentas());
+            infile>>v[i].vardas;
+            infile>>v[i].pavarde;
+            for(int j=0;j<nOfNd; j++){
+                v[i].nd.push_back(double());
+                infile>>v[i].nd[j];
+            }
+            infile>>v[i].egz;
+        }
     }
+    getAverages(v);
+    getMedians(v);
+    sort(v.begin(), v.end(), compare);
     writeEverything(v);
 }

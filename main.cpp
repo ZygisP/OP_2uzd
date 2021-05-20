@@ -1,16 +1,18 @@
 #include "func.h"
-
 int main() {
     vector<mokinys> p;
-    string value;
-    double value_d;
+    vector<mokinys> k;
+    vector<mokinys> l;
 
     int input = 0;
     cout<<"Pasirinkite ivedimo buda :"<<endl;
     cout<<"0 - ivedimas ranka"<<endl;
     cout<<"1 - ivedimas failu"<<endl;
+    cout<<"2 - ivedimas random failu"<<endl;
     cin>>input;
     if(!input){
+        string value;
+        double value_d;
         for(int i=0;; i++){
             p.push_back(mokinys());
             cout<<"Iveskite "<<i+1<<" mokinio varda"<<endl;
@@ -49,32 +51,40 @@ int main() {
         getAverages(p);
         getMedians(p);
         sort(p.begin(), p.end(), compare);
-        writeEverything(p);
+        sortByCool(k, l, p);
+        writeEverything(k, l);
+    } else if (input == 1) {
+        string inputFileName = "";
+        cout<<"Prasome pateikti failo pavadinima"<<endl;
+        cin>>inputFileName;
+        readFromFile(p, inputFileName);
+        getAverages(p);
+        getMedians(p);
+        cout<<"Sorting..."<<endl;
+        sort(p.begin(), p.end(), compare);
+        sortByCool(k, l, p);
+        writeEverything(k, l);
+        cout<<"Done."<<endl;
     } else {
-        //ifstream infile("studentai10000.txt");
-        string value = "";
-        infile>>value>>value>>value;
-        int nOfNd= 0;
-        while(value[0] == 'N'){
-            infile>>value;
-            nOfNd++;
-        }
-        cout<<"Reading..."<<endl;
-        for(int i=0;;i++){
-            //if(i%10000==0) cout<<i<<endl;
-            if(infile.eof()) break;
-            p.push_back(mokinys());
-            infile>>p[i].vardas;
-            infile>>p[i].pavarde;
-            for(int j=0;j<nOfNd; j++){
-                p[i].nd.push_back(double());
-                infile>>p[i].nd[j];
-            }
-            infile>>p[i].egzaminas;
-        }
+        auto start_main = std::chrono::steady_clock::now();
+        int nOfNd = 0;
+        int nOfStudents = 0;
+        cout<<"Iveskite namu darbu kieki: "<<endl;
+        cin>>nOfNd;
+        cout<<"Iveskite studentu kieki: "<<endl;
+        cin>>nOfStudents;
+        generateInputFile(nOfNd, nOfStudents);
+        readFromFile(p, "randomized_input");
+        getAverages(p);
+        getMedians(p);
+        cout<<"Sorting..."<<endl;
+        auto start = std::chrono::steady_clock::now();
+        sort(p.begin(), p.end(), compare);
+        auto ending = std::chrono::steady_clock::now();
+        cout<<"Done in : "<<std::chrono::duration <double, milli>(ending - start).count()<<" ms"<<endl;
+        sortByCool(k, l, p);
+        writeEverything(k, l);
+        auto ending_main = std::chrono::steady_clock::now();
+        cout<<"Done. Time elapsed : "<<std::chrono::duration <double, milli>(ending_main - start_main).count()<<" ms"<<endl;
     }
-    getAverages(p);
-    getMedians(p);
-    sort(p.begin(), p.end(), compare);
-    writeEverything(p);
 }

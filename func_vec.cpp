@@ -1,5 +1,5 @@
-#include "func.h"
-void getAverages(deque<mokinys> &p) {
+#include "func_vec.h"
+void getAverages(vector<mokinys> &p) {
     auto start = std::chrono::steady_clock::now();
     cout<<"Calculating averages..."<<endl;
     double sum = 0;
@@ -15,10 +15,10 @@ void getAverages(deque<mokinys> &p) {
 }
 
 bool compare(const mokinys &first, const mokinys &second){
-	return (first.vardas < second.vardas ||
+    return (first.vardas < second.vardas ||
          (first.vardas == second.vardas && first.pavarde < second.pavarde));
 }
-void getMedians(deque<mokinys> &p) {
+void getMedians(vector<mokinys> &p) {
     cout<<"Calculating medians..."<<endl;
     auto start = std::chrono::steady_clock::now();
     for(int x=0; x<p.size(); x++){
@@ -93,7 +93,7 @@ void generateInputFile(int nOfNd, int nOfStudents){
     auto ending = std::chrono::steady_clock::now();
     cout<<"Done in : "<<std::chrono::duration <double, milli>(ending - start).count()<<" ms"<<endl;
 }
-void readFromFile (deque<mokinys> &p, string inputFileName) {
+void readFromFile (vector<mokinys> &p, string inputFileName) {
     auto start = std::chrono::steady_clock::now();
     inputFileName+=".txt";
     ifstream infile (inputFileName);
@@ -119,7 +119,7 @@ void readFromFile (deque<mokinys> &p, string inputFileName) {
     auto ending = std::chrono::steady_clock::now();
     cout<<"Done in : "<<std::chrono::duration <double, milli>(ending - start).count()<<" ms"<<endl;
 }
-void sortByCool(deque<mokinys> &k, deque<mokinys> &l, deque<mokinys> &p) {
+void sortByCool(vector<mokinys> &k, vector<mokinys> &l, vector<mokinys> &p) {
     auto start = std::chrono::steady_clock::now();
     cout<<"Splitting students..."<<endl;
     for(int i=0; i<p.size(); i++) {
@@ -133,7 +133,7 @@ void sortByCool(deque<mokinys> &k, deque<mokinys> &l, deque<mokinys> &p) {
     auto ending = std::chrono::steady_clock::now();
     cout<<"Done in : "<<std::chrono::duration <double, milli>(ending - start).count()<<" ms"<<endl;
 }
-void writeEverything(deque<mokinys> k, deque<mokinys> l) {
+void writeEverything(vector<mokinys> k, vector<mokinys> l) {
     auto start = std::chrono::steady_clock::now();
     cout<<"Writing..."<<endl;
     ofstream offile_k ("kietekai.txt");

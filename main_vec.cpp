@@ -1,8 +1,8 @@
-#include "func.h"
+#include "func_vec.h"
 int main() {
-    deque<mokinys> p;
-    deque<mokinys> k;
-    deque<mokinys> l;
+    vector<mokinys> p;
+    vector<mokinys> k;
+    vector<mokinys> l;
 
     int input = 0;
     cout<<"Pasirinkite ivedimo buda :"<<endl;

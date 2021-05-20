@@ -1,14 +1,14 @@
 #ifndef FUNCTION
 #define FUNCTION
 #include <iostream>
-#include <deque>
+#include <vector>
 #include <iomanip>
 #include <fstream>
 #include <algorithm>
 #include <ctime>
 #include <chrono>
 using std::string;
-using std::deque;
+using std::vector;
 using std::cin;
 using std::cout;
 using std::endl;
@@ -30,17 +30,17 @@ struct mokinys {
     string vardas;
     string pavarde;
     double egzaminas;
-    deque<double> nd;
+    vector<double> nd;
     double vidurkis;
     double mediana;
 };
-void getAverages(deque<mokinys> &p);
+void getAverages(vector<mokinys> &p);
 bool compare(const mokinys &first, const mokinys &second);
-void getMedians(deque<mokinys> &p);
+void getMedians(vector<mokinys> &p);
 int numOfDigits(int number);
 void generateInputFile(int nOfNd, int nOfStudents);
-void sortByCool(deque<mokinys> &k, deque<mokinys> &l, deque<mokinys> &p);
-void readFromFile(deque<mokinys> &p, string inputFileName);
-void writeEverything(deque<mokinys> k, deque<mokinys> l);
+void sortByCool(vector<mokinys> &k, vector<mokinys> &l, vector<mokinys> &p);
+void readFromFile(vector<mokinys> &p, string inputFileName);
+void writeEverything(vector<mokinys> k, vector<mokinys> l);
 
 #endif

@@ -279,3 +279,6 @@ Medianų skaičiavimas: 76.3007 ms <br>
 Rūšiavimas std::sort: 1061.17 ms <br>
 Studentų skirstymas į "kietekus" ir "lievakus": 324.437 ms <br>
 Rašymas į failą: 5102.32 ms <br>
+
+# Release v1.2
+Pridėtas "<<" custom operatorius padedantis parašyti išrašymo funkcijas "švariau" ir labiau organizuotai.

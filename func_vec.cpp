@@ -137,50 +137,33 @@ void mokinys::writeEverything(vector<mokinys> k, vector<mokinys> l) {
     auto start = std::chrono::steady_clock::now();
     cout<<"Writing..."<<endl;
     ofstream offile_k ("kietekai.txt");
-    offile_k.width(15);
-    offile_k << left << "Vardas";
-    offile_k.width(15);
-    offile_k << left << "Pavarde";
-    offile_k.width(20);
-    offile_k << left << "Galutinis (Vid.)";
-    offile_k.width(20);
-    offile_k << left << "Galutinis (Med.)"<<endl;
-
-    for (int n = 0; n < 70; n++) offile_k << "-";
-    offile_k<<endl;
-    for(int i=0; i < k.size(); i++) {
-        offile_k.width(15);
-        offile_k << left << k[i].vardas;
-        offile_k.width(15);
-        offile_k << left << k[i].pavarde;
-        offile_k.width(20);
-        offile_k << fixed << setprecision(2) << k[i].vidurkis;
-        offile_k.width(20);
-        offile_k << fixed << setprecision(2) << k[i].mediana<<endl;
-    }
+    offile_k<<k;
 
     ofstream offile_l ("lievakai.txt");
-    offile_l.width(15);
-    offile_l<< left << "Vardas";
-    offile_l.width(15);
-    offile_l << left << "Pavarde";
-    offile_l.width(20);
-    offile_l << left << "Galutinis (Vid.)";
-    offile_l.width(20);
-    offile_l << left << "Galutinis (Med.)"<<endl;
-
-    for (int n = 0; n < 70; n++) offile_l << "-";
-    offile_l<<endl;
-    for(int i=0; i < l.size(); i++) {
-        offile_l.width(15);
-        offile_l << left << l[i].vardas;
-        offile_l.width(15);
-        offile_l << left << l[i].pavarde;
-        offile_l.width(20);
-        offile_l << fixed << setprecision(2) << l[i].vidurkis;
-        offile_l.width(20);
-        offile_l<< fixed << setprecision(2) << l[i].mediana<<endl;
-    }
+    offile_l<<l;
     auto ending = std::chrono::steady_clock::now();
     cout<<"Done in : "<<std::chrono::duration <double, milli>(ending - start).count()<<" ms"<<endl;
+}
+ostream& operator<<(ostream& os, vector<mokinys> &vec){
+    os.width(15);
+    os << left << "Vardas";
+    os.width(15);
+    os << left << "Pavarde";
+    os.width(20);
+    os << left << "Galutinis (Vid.)";
+    os.width(20);
+    os << left << "Galutinis (Med.)"<<endl;
+    for (int n = 0; n < 70; n++) os << "-";
+    os<<endl;
+    for(int i=0; i < vec.size(); i++) {
+        os.width(15);
+        os << left << vec[i].vardas;
+        os.width(15);
+        os << left << vec[i].pavarde;
+        os.width(20);
+        os << fixed << setprecision(2) << vec[i].vidurkis;
+        os.width(20);
+        os << fixed << setprecision(2) << vec[i].mediana<<endl;
+    }
+    return os;
 }

@@ -20,16 +20,21 @@ using std::fixed;
 using std::streamsize;
 using std::ifstream;
 using std::ofstream;
+using std::ostream;
 using std::setprecision;
 using std::milli;
 
 //inline ifstream infile("studentai10000.txt");
 //inline ofstream offile("res.txt");
 
-class mokinys {
+class zmogus {
    public:
     string vardas;
     string pavarde;
+};
+
+class mokinys : public zmogus {
+   public:
     double egzaminas;
     vector<double> nd;
     double vidurkis;
@@ -39,10 +44,11 @@ class mokinys {
     void sortByCool(vector<mokinys> &k, vector<mokinys> &l, vector<mokinys> &p);
     void readFromFile(vector<mokinys> &p, string inputFileName);
     void writeEverything(vector<mokinys> k, vector<mokinys> l);
+    friend ostream& operator<<(ostream& os, vector<mokinys> &vec);
 };
 
 bool compare(const mokinys &first, const mokinys &second);
 int numOfDigits(int number);
 void generateInputFile(int nOfNd, int nOfStudents);
-
+ostream& operator<<(ostream& os, vector<mokinys> &vec);
 #endif

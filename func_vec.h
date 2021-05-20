@@ -27,10 +27,14 @@ using std::milli;
 //inline ifstream infile("studentai10000.txt");
 //inline ofstream offile("res.txt");
 
-class mokinys {
+class zmogus {
    public:
     string vardas;
     string pavarde;
+};
+
+class mokinys : public zmogus {
+   public:
     double egzaminas;
     vector<double> nd;
     double vidurkis;

@@ -30,15 +30,7 @@ void getMedians(deque<mokinys> &p) {
     auto start = std::chrono::steady_clock::now();
     for(int x=0; x<p.size(); x++){
         int n = p[x].nd.size();
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                if(p[x].nd[i]<p[x].nd[j]){
-                    double temp = p[x].nd[i];
-                    p[x].nd[i] = p[x].nd[j];
-                    p[x].nd[j] = temp;
-                }
-            }
-        }
+        sort(p[x].nd.begin(), p[x].nd.end());
         if(n%2 == 1){
             p[x].mediana = 0.4 * (p[x].nd[n/2]) + 0.6 * p[x].egzaminas;
         } else {
@@ -61,7 +53,16 @@ int numOfDigits(int number){
     }
     return output;
 }
-void generateInputFile(int nOfNd, int nOfStudents){
+bool checkFileExists(string filename) {
+    ifstream file_to_check(filename);
+    if (file_to_check.is_open()) {
+        file_to_check.close();
+        return true;
+    }
+    return false;    
+}
+
+void generateInputFile(int nOfNd, int nOfStudents, string filename){
     auto start = std::chrono::steady_clock::now();
     int temp = -1;
     string name = "Vardas";
@@ -69,40 +70,45 @@ void generateInputFile(int nOfNd, int nOfStudents){
     string nd = "ND";
     srand(time(NULL));
 
-    ofstream rOffile;
-    cout<<"Generating..."<<endl;
-    rOffile.open("randomized_input.txt");
-    rOffile << setw(20) << left << name << setw(20) << left << surname;
-    for(int i=1; i< nOfNd+1; i++){
-        rOffile << setw(5) << right << nd << i ;
-    }
-    rOffile << setw(10) << right << "Egz." << endl;
-    for(int i=0; i<nOfStudents; i++){
-        rOffile << right <<  name << i;
-        rOffile << setw(20-numOfDigits(i)) << right;
-        rOffile << surname << i;
+    cout<<"Checking if input file already exists..."<<endl;
+    if (!checkFileExists(filename)){
+        ofstream rOffile;
+        cout<<"Generating..."<<endl;
+        rOffile.open(filename);
+        rOffile << setw(20) << left << name << setw(20) << left << surname;
+        for(int i=1; i< nOfNd+1; i++){
+            rOffile << setw(5) << right << nd << i ;
+        }
+        rOffile << setw(10) << right << "Egz." << endl;
+        for(int i=0; i<nOfStudents; i++){
+            rOffile << right <<  name << i;
+            rOffile << setw(20-numOfDigits(i)) << right;
+            rOffile << surname << i;
 
-        for(int j=0; j<nOfNd; j++){
-            if(j==0){
-                rOffile << setw(18-numOfDigits(i)) << right;
+            for(int j=0; j<nOfNd; j++){
+                if(j==0){
+                    rOffile << setw(18-numOfDigits(i)) << right;
+                }
+                else{
+                    rOffile << setw(6) << right;
+                }
+                rOffile  << rand() % 10 + 1;
             }
-            else{
-                rOffile << setw(6) << right;
+            rOffile << setw(6) << right << rand() % 10 + 1;
+            if(i != nOfStudents-1) {
+                rOffile<<endl;
             }
-            rOffile  << rand() % 10 + 1;
         }
-        rOffile << setw(6) << right << rand() % 10 + 1;
-        if(i != nOfStudents-1) {
-            rOffile<<endl;
-        }
+        rOffile.close();
+        auto ending = std::chrono::steady_clock::now();
+        cout<<"Done in : "<<std::chrono::duration <double, milli>(ending - start).count()<<" ms"<<endl;
+    } else {
+        cout<<"File exists!"<<endl;
     }
-    rOffile.close();
-    auto ending = std::chrono::steady_clock::now();
-    cout<<"Done in : "<<std::chrono::duration <double, milli>(ending - start).count()<<" ms"<<endl;
+    
 }
 void readFromFile (deque<mokinys> &p, string inputFileName) {
     auto start = std::chrono::steady_clock::now();
-    inputFileName+=".txt";
     ifstream infile (inputFileName);
     string value = "";
     infile>>value>>value>>value;
@@ -114,7 +120,6 @@ void readFromFile (deque<mokinys> &p, string inputFileName) {
     cout<<"Reading from file..."<<endl;
     for(int i=0;;i++){
         if(infile.eof()) break;
-        p.push_back(mokinys());
         infile>>p[i].vardas;
         infile>>p[i].pavarde;
         for(int j=0;j<nOfNd; j++){
@@ -128,12 +133,15 @@ void readFromFile (deque<mokinys> &p, string inputFileName) {
 }
 void sortByCool(deque<mokinys> &k, deque<mokinys> &l, deque<mokinys> &p) {
     auto start = std::chrono::steady_clock::now();
+    int counter_k = 0, counter_l = 0;
     cout<<"Splitting students..."<<endl;
     for(int i=0; i<p.size(); i++) {
         if(p[i].vidurkis >= 5) {
-            k.push_back(p[i]);
+            k[counter_k] = p[i];
+            counter_k++;
         } else {
-            l.push_back(p[i]);
+            l[counter_l] = p[i];
+            counter_l++;
         }
     }
     p.clear();

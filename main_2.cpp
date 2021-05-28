@@ -14,7 +14,7 @@ int main() {
     isValidInput = isInt(input);
     if(isValidInput && input == "0"){
         string value;
-        double value_d;
+        int value_d;
         for(int i=0;; i++){
             p.push_back(mokinys());
             cout<<"Iveskite "<<i+1<<" mokinio varda"<<endl;
@@ -35,7 +35,7 @@ int main() {
                 cout<<"Iveskite "<<i+1<<" mokinio "<<j<<" namu darbo rezultata"<<endl;
                 cin>>value_d;
                 if(value_d != 0) {
-                    p[i].nd.push_back(double());
+                    p[i].nd.push_back(int());
                     p[i].nd[j] = value_d;
                 } else {
                     break;

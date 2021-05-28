@@ -61,6 +61,9 @@ int main() {
         string inputFileName = "";
         cout<<"Prasome pateikti failo pavadinima"<<endl;
         cin>>inputFileName;
+        p.resize(10000000);
+        k.resize(10000000);
+        l.resize(10000000);
         readFromFile(p, inputFileName);
         getAverages(p);
         getMedians(p);
@@ -77,8 +80,12 @@ int main() {
         cin>>nOfNd;
         cout<<"Iveskite studentu kieki: "<<endl;
         cin>>nOfStudents;
-        generateInputFile(nOfNd, nOfStudents);
-        readFromFile(p, "randomized_input");
+        p.resize(nOfStudents);
+        k.resize(nOfStudents);
+        l.resize(nOfStudents);
+        string filename = "randomized_input_" + to_string(nOfStudents) + "_" + to_string(nOfNd) + ".txt";
+        generateInputFile(nOfNd, nOfStudents, filename);
+        readFromFile(p, filename);
         getAverages(p);
         getMedians(p);
         cout<<"Sorting..."<<endl;

@@ -22,6 +22,7 @@ using std::ifstream;
 using std::ofstream;
 using std::setprecision;
 using std::milli;
+using std::partition;
 
 //inline ifstream infile("studentai10000.txt");
 //inline ofstream offile("res.txt");
@@ -29,8 +30,8 @@ using std::milli;
 struct mokinys {
     string vardas;
     string pavarde;
-    double egzaminas;
-    deque<double> nd;
+    int egzaminas;
+    deque<int> nd;
     double vidurkis;
     double mediana;
 };
@@ -39,6 +40,7 @@ bool compare(const mokinys &first, const mokinys &second);
 bool isInt(string s);
 void getMedians(deque<mokinys> &p);
 int numOfDigits(int number);
+bool isSmart (mokinys &i);
 void generateInputFile(int nOfNd, int nOfStudents);
 void readFromFile(deque<mokinys> &p, string inputFileName);
 void sortByCool(deque<mokinys> &p, deque<mokinys> &l);

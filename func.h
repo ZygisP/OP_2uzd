@@ -22,6 +22,7 @@ using std::ifstream;
 using std::ofstream;
 using std::setprecision;
 using std::milli;
+using std::to_string;
 
 //inline ifstream infile("studentai10000.txt");
 //inline ofstream offile("res.txt");
@@ -39,7 +40,7 @@ bool compare(const mokinys &first, const mokinys &second);
 bool isInt(string s);
 void getMedians(deque<mokinys> &p);
 int numOfDigits(int number);
-void generateInputFile(int nOfNd, int nOfStudents);
+void generateInputFile(int nOfNd, int nOfStudents, string filename);
 void sortByCool(deque<mokinys> &k, deque<mokinys> &l, deque<mokinys> &p);
 void readFromFile(deque<mokinys> &p, string inputFileName);
 void writeEverything(deque<mokinys> k, deque<mokinys> l);

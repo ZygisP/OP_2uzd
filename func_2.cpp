@@ -30,15 +30,7 @@ void getMedians(deque<mokinys> &p) {
     auto start = std::chrono::steady_clock::now();
     for(int x=0; x<p.size(); x++){
         int n = p[x].nd.size();
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                if(p[x].nd[i]<p[x].nd[j]){
-                    double temp = p[x].nd[i];
-                    p[x].nd[i] = p[x].nd[j];
-                    p[x].nd[j] = temp;
-                }
-            }
-        }
+        sort(p[x].nd.begin(), p[x].nd.end());
         if(n%2 == 1){
             p[x].mediana = 0.4 * (p[x].nd[n/2]) + 0.6 * p[x].egzaminas;
         } else {
@@ -126,19 +118,29 @@ void readFromFile (deque<mokinys> &p, string inputFileName) {
     auto ending = std::chrono::steady_clock::now();
     cout<<"Done in : "<<std::chrono::duration <double, milli>(ending - start).count()<<" ms"<<endl;
 }
+
+bool isSmart (mokinys &i) {
+    if (i.vidurkis > 5.0)
+        return false;
+    else
+        return true;
+}
 void sortByCool(deque<mokinys> &p, deque<mokinys> &l) {
     auto start = std::chrono::steady_clock::now();
+    int counter = 0;
     cout<<"Splitting students..."<<endl;
-    for(int i=0; i<p.size(); i++) {
-        if(p[i].vidurkis <= 5) {
-            l.push_back(p[i]);
-            p.erase(p.begin()+i);
-            i--;
-        }
+    std::deque<mokinys>::iterator bound = partition(p.begin(), p.end(), isSmart);
+    for (std::deque<mokinys>::iterator it=p.begin(); it != bound; ++it) {
+        l.push_back(p[counter]);
+        counter++;
     }
+    p.erase(p.begin(), p.begin() + l.size());
+
     auto ending = std::chrono::steady_clock::now();
     cout<<"Done in : "<<std::chrono::duration <double, milli>(ending - start).count()<<" ms"<<endl;
 }
+
+
 void writeEverything(deque<mokinys> p, deque<mokinys> l) {
     auto start = std::chrono::steady_clock::now();
     cout<<"Writing..."<<endl;

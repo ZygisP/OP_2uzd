@@ -2,6 +2,8 @@
 int main() {
     vector<mokinys> p;
     vector<mokinys> l;
+    p.reserve(10000000);
+    l.reserve(10000000);
     bool isValidInput;
 
     string input;
@@ -75,8 +77,9 @@ int main() {
         cin>>nOfNd;
         cout<<"Iveskite studentu kieki: "<<endl;
         cin>>nOfStudents;
-        generateInputFile(nOfNd, nOfStudents);
-        readFromFile(p, "randomized_input");
+        string filename = "randomized_input_" + to_string(nOfStudents) + "_" + to_string(nOfNd) + ".txt";
+        generateInputFile(nOfNd, nOfStudents, filename);
+        readFromFile(p, filename);
         getAverages(p);
         getMedians(p);
         cout<<"Sorting..."<<endl;

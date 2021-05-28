@@ -176,6 +176,12 @@ CPU: Intel(R) Core(TM) i5-7300HQ @ ~2.50GHz (4 CPUs), RAM: 8GB DD4-2666Mhz, SSD:
 # Release v1.1
 Iš struktūrų pereita prie klasių. Palygintas programos laikas naudojant struktūras ir klases bei skirtingas O flags.
 
+# Struct laikai Vector(100k)
+![vector_a_100k](https://user-images.githubusercontent.com/38924118/119930147-936fcd00-bf87-11eb-8d55-9269fd661d37.PNG)
+
+# Struct laikai Vector(1mil)
+![vector_a_1mil](https://user-images.githubusercontent.com/38924118/119930198-a71b3380-bf87-11eb-8955-6b45fe82f80b.PNG)
+
 # Testavimo rezultatai -O1 (100k)
 ![01_100k](https://user-images.githubusercontent.com/38924118/119930647-7b4c7d80-bf88-11eb-8f2b-96df9d415f52.PNG)
 

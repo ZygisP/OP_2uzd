@@ -1,4 +1,6 @@
 # Objektinio programavimo 2 uzduotis
+Main branch'e visada yra atliekamas pull request'as su naujausia stabilia versija.
+
 # Release v0.1
 Failas main.cpp yra vektorių implementacija projekte. Aplikacija konsolėje skaito naudotojų įrašą (input): studentų vardus, pavardes, namų darbų rezultatus, 
 tada suskaičiuoja galutinį pažymį bei pažymių vidurkį ir medianą. Taip pat studentų pažymiai gali būti sugeneruojami atsitiktinai.
@@ -7,7 +9,7 @@ tada suskaičiuoja galutinį pažymį bei pažymių vidurkį ir medianą. Taip p
 Pridėta skaitymo iš failo implementacija. Rodomas rezultatas rušiuojamas pagal studentų vardus ir pavardes.
 
 # Release v0.3
-Pridėtas .h header failas, sukurti atskiri .cpp failai: vienas main funkcijai, kitas - kitoms aplikacijoje n
+Pridėtas .h header failas, sukurti atskiri .cpp failai: vienas main funkcijai, kitas - kitoms aplikacijoje naudojamoms funkcijoms
 
 # Release v0.4
 Pridėta galimybė atsitiktinai generuoti įrašymo failus. Rezultatai skirstomi pagal pažymius į "kietekus" ir "lievakus". Atitinkamai sukuriami failai šiems dviems sarašams išvesti. Programos laikas skaičiuojamas programoje kiekvienai funkcijai.
@@ -129,8 +131,8 @@ Implementuotos dvi strategijos programos atlikimui ir lyginamas programos laikas
 Priedas "vec" skirtas failams implementuojamais su vektoriais
 Be priedo failai skirti implementacijai su deku
 
-Priedas "2" skirtas programos implementacijai su strategija B
-Be priedo failai skirti implementacijai su strategija A
+Priedas "2" skirtas programos implementacijai su strategija B (skirstome naudodami du konteinerius)
+Be priedo failai skirti implementacijai su strategija A (skirstome naudodami tris konteinerius)
 
 Programos paleidimas: įrašyti 'make' cmd lange atsidarius kataloga kur yra failai su kodu.
 
@@ -140,46 +142,33 @@ Su šiuo makefile programa pasileis su strategijos B implementacija.
 # Testavimo kompiuteris
 CPU: Intel(R) Core(TM) i5-7300HQ @ ~2.50GHz (4 CPUs), RAM: 8GB DD4-2666Mhz, SSD: SAMSUNG MZVLW128 1TB M.2
 
-# Testavimo rezultatai (Vector)(A)
-Studentų skaičius: 100000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 470.158 ms <br>
-Skaitymas iš failo: 2188.14 ms <br>
-Vidurkių skaičiavimas: 8.1929 ms <br>
-Medianų skaičiavimas: 43.5323 ms <br>
-Rūšiavimas std::sort: 677.136 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 81.2707 ms <br>
-Rašymas į failą: 824.36 ms <br>
+# Testavimo rezultatai (Vector)(A)(100k)
+![vector_a_100k](https://user-images.githubusercontent.com/38924118/119930147-936fcd00-bf87-11eb-8d55-9269fd661d37.PNG)
 
-# Testavimo rezultatai (Vector)(B)
-Studentų skaičius: 100000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 695.066 ms <br>
-Skaitymas iš failo: 2273.29 ms <br>
-Vidurkių skaičiavimas: 9.5355 ms <br>
-Medianų skaičiavimas: 49.6168 ms <br>
-Rūšiavimas std::sort: 747.642 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 574882 ms <br>
-Rašymas į failą: 795.351 ms <br>
+# Testavimo rezultatai (Vector)(A)(1mil)
+![vector_a_1mil](https://user-images.githubusercontent.com/38924118/119930198-a71b3380-bf87-11eb-8955-6b45fe82f80b.PNG)
 
-# Testavimo rezultatai (Deque)(A)
-Studentų skaičius: 100000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 664.821 ms <br>
-Skaitymas iš failo: 2252.72 ms <br>
-Vidurkių skaičiavimas: 131.105 ms <br>
-Medianų skaičiavimas: 723.922 ms <br>
-Rūšiavimas std::sort: 1257.64 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 163.591 ms <br>
-Rašymas į failą: 699.587 ms <br>
+# Testavimo rezultatai (Vector)(A)(10mil)
+![vector_a_10mil](https://user-images.githubusercontent.com/38924118/119930239-b9956d00-bf87-11eb-9fbb-d034ac0976e1.PNG)
 
-# Testavimo rezultatai (Deque)(B)
-Studentų skaičius: 100000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 670.548 ms <br>
-Skaitymas iš failo: 2282.41 ms <br>
-Vidurkių skaičiavimas: 137.056 ms <br>
-Medianų skaičiavimas: 799.482 ms <br>
-Rūšiavimas std::sort: 1257.74 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 286133 ms <br>
-Rašymas į failą: 621.995 ms <br>
+# Testavimo rezultatai (Vector)(B)(100k)
+![vector_b_100k](https://user-images.githubusercontent.com/38924118/119930268-cc0fa680-bf87-11eb-8259-a6a9ba2a3974.PNG)
+
+# Testavimo rezultatai (Vector)(B)(1mil)
+![vector_b_1mil](https://user-images.githubusercontent.com/38924118/119930290-da5dc280-bf87-11eb-9245-ebb4ba043ffc.PNG)
+
+# Testavimo rezultatai (Vector)(B)(10mil)
+![vector_b_10mil_nogenerate](https://user-images.githubusercontent.com/38924118/119930318-e5185780-bf87-11eb-8211-5f4d5cddca21.PNG)
+
+# Testavimo rezultatai (Deque)(A)(100k)
+![deque_a_100k](https://user-images.githubusercontent.com/38924118/119930396-08db9d80-bf88-11eb-90fc-a709dad679c5.PNG)
+
+# Testavimo rezultatai (Deque)(A)(1mil)
+![deque_a_1mil](https://user-images.githubusercontent.com/38924118/119930444-1e50c780-bf88-11eb-9e96-a792098e8637.PNG)
+
+# Testavimo rezultatai (Deque)(B)(100k)
+![deque_b_100k](https://user-images.githubusercontent.com/38924118/119930501-3a546900-bf88-11eb-8561-9bfbe43a7b92.PNG)
+
+# Testavimo rezultatai (Deque)(B)(1mil)
+![deque_b_1mil](https://user-images.githubusercontent.com/38924118/119930506-3de7f000-bf88-11eb-9dff-2f385a7c8dc2.PNG)
+

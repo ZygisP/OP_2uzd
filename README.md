@@ -131,8 +131,8 @@ Implementuotos dvi strategijos programos atlikimui ir lyginamas programos laikas
 Priedas "vec" skirtas failams implementuojamais su vektoriais
 Be priedo failai skirti implementacijai su deku
 
-Priedas "2" skirtas programos implementacijai su strategija B
-Be priedo failai skirti implementacijai su strategija A
+Priedas "2" skirtas programos implementacijai su strategija B (skirstome naudodami du konteinerius)
+Be priedo failai skirti implementacijai su strategija A (skirstome naudodami tris konteinerius)
 
 Programos paleidimas: įrašyti 'make' cmd lange atsidarius kataloga kur yra failai su kodu.
 

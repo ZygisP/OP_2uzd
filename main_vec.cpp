@@ -10,7 +10,8 @@ int main() {
     cout<<"0 - ivedimas ranka"<<endl;
     cout<<"1 - ivedimas failu"<<endl;
     cout<<"2 - ivedimas random failu"<<endl;
-    cin>>input;
+    cin >> input;
+
     if(!input){
         string value;
         double value_d;
@@ -74,8 +75,12 @@ int main() {
         cin>>nOfNd;
         cout<<"Iveskite studentu kieki: "<<endl;
         cin>>nOfStudents;
-        generateInputFile(nOfNd, nOfStudents);
-        obj.readFromFile(p, "randomized_input");
+        p.reserve(nOfStudents);
+        k.reserve(nOfStudents);
+        l.reserve(nOfStudents);
+        string filename = "randomized_input_" + to_string(nOfStudents) + "_" + to_string(nOfNd) + ".txt";
+        generateInputFile(nOfNd, nOfStudents, filename);
+        obj.readFromFile(p, filename);
         obj.getAverages(p);
         obj.getMedians(p);
         cout<<"Sorting..."<<endl;

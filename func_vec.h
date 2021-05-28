@@ -22,6 +22,7 @@ using std::ifstream;
 using std::ofstream;
 using std::setprecision;
 using std::milli;
+using std::to_string;
 
 //inline ifstream infile("studentai10000.txt");
 //inline ofstream offile("res.txt");
@@ -43,6 +44,7 @@ class mokinys {
 
 bool compare(const mokinys &first, const mokinys &second);
 int numOfDigits(int number);
-void generateInputFile(int nOfNd, int nOfStudents);
+void generateInputFile(int nOfNd, int nOfStudents, string filename);
+bool checkFileExists(string filename);
 
 #endif

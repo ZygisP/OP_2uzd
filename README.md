@@ -211,3 +211,4 @@ atnaujintas README.md
 3. open command line or terminal inside the same directory
 4. run make
 5. run the program by make run
+

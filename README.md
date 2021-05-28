@@ -142,145 +142,57 @@ Su šiuo makefile programa pasileis su strategijos B implementacija.
 # Testavimo kompiuteris
 CPU: Intel(R) Core(TM) i5-7300HQ @ ~2.50GHz (4 CPUs), RAM: 8GB DD4-2666Mhz, SSD: SAMSUNG MZVLW128 1TB M.2
 
-# Testavimo rezultatai (Vector)(A)
-Studentų skaičius: 100000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 470.158 ms <br>
-Skaitymas iš failo: 2188.14 ms <br>
-Vidurkių skaičiavimas: 8.1929 ms <br>
-Medianų skaičiavimas: 43.5323 ms <br>
-Rūšiavimas std::sort: 677.136 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 81.2707 ms <br>
-Rašymas į failą: 824.36 ms <br>
+# Testavimo rezultatai (Vector)(A)(100k)
+![vector_a_100k](https://user-images.githubusercontent.com/38924118/119930147-936fcd00-bf87-11eb-8d55-9269fd661d37.PNG)
 
-# Testavimo rezultatai (Vector)(B)
-Studentų skaičius: 100000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 695.066 ms <br>
-Skaitymas iš failo: 2273.29 ms <br>
-Vidurkių skaičiavimas: 9.5355 ms <br>
-Medianų skaičiavimas: 49.6168 ms <br>
-Rūšiavimas std::sort: 747.642 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 574882 ms <br>
-Rašymas į failą: 795.351 ms <br>
+# Testavimo rezultatai (Vector)(A)(1mil)
+![vector_a_1mil](https://user-images.githubusercontent.com/38924118/119930198-a71b3380-bf87-11eb-8955-6b45fe82f80b.PNG)
 
-# Testavimo rezultatai (Deque)(A)
-Studentų skaičius: 100000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 664.821 ms <br>
-Skaitymas iš failo: 2252.72 ms <br>
-Vidurkių skaičiavimas: 131.105 ms <br>
-Medianų skaičiavimas: 723.922 ms <br>
-Rūšiavimas std::sort: 1257.64 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 163.591 ms <br>
-Rašymas į failą: 699.587 ms <br>
+# Testavimo rezultatai (Vector)(A)(10mil)
+![vector_a_10mil](https://user-images.githubusercontent.com/38924118/119930239-b9956d00-bf87-11eb-9fbb-d034ac0976e1.PNG)
 
-# Testavimo rezultatai (Deque)(B)
-Studentų skaičius: 100000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 670.548 ms <br>
-Skaitymas iš failo: 2282.41 ms <br>
-Vidurkių skaičiavimas: 137.056 ms <br>
-Medianų skaičiavimas: 799.482 ms <br>
-Rūšiavimas std::sort: 1257.74 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 286133 ms <br>
-Rašymas į failą: 621.995 ms <br>
+# Testavimo rezultatai (Vector)(B)(100k)
+![vector_b_100k](https://user-images.githubusercontent.com/38924118/119930268-cc0fa680-bf87-11eb-8259-a6a9ba2a3974.PNG)
+
+# Testavimo rezultatai (Vector)(B)(1mil)
+![vector_b_1mil](https://user-images.githubusercontent.com/38924118/119930290-da5dc280-bf87-11eb-9245-ebb4ba043ffc.PNG)
+
+# Testavimo rezultatai (Vector)(B)(10mil)
+![vector_b_10mil_nogenerate](https://user-images.githubusercontent.com/38924118/119930318-e5185780-bf87-11eb-8211-5f4d5cddca21.PNG)
+
+# Testavimo rezultatai (Deque)(A)(100k)
+![deque_a_100k](https://user-images.githubusercontent.com/38924118/119930396-08db9d80-bf88-11eb-90fc-a709dad679c5.PNG)
+
+# Testavimo rezultatai (Deque)(A)(1mil)
+![deque_a_1mil](https://user-images.githubusercontent.com/38924118/119930444-1e50c780-bf88-11eb-9e96-a792098e8637.PNG)
+
+# Testavimo rezultatai (Deque)(B)(100k)
+![deque_b_100k](https://user-images.githubusercontent.com/38924118/119930501-3a546900-bf88-11eb-8561-9bfbe43a7b92.PNG)
+
+# Testavimo rezultatai (Deque)(B)(1mil)
+![deque_b_1mil](https://user-images.githubusercontent.com/38924118/119930506-3de7f000-bf88-11eb-9dff-2f385a7c8dc2.PNG)
 
 
 # Release v1.1
 Iš struktūrų pereita prie klasių. Palygintas programos laikas naudojant struktūras ir klases bei skirtingas O flags.
 
-# Testavimo rezultatai (Struct)
-Testavimas #1: <br>
-Studentų skaičius: 100000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 695.361 ms <br>
-Skaitymas iš failo: 2194.81 ms <br>
-Vidurkių skaičiavimas: 8.0244 ms <br>
-Medianų skaičiavimas: 44.3731 ms <br>
-Rūšiavimas std::sort: 667.623 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 93.1717 ms <br>
-Rašymas į failą: 588.071 ms <br>
+# Testavimo rezultatai -O1 (100k)
+![01_100k](https://user-images.githubusercontent.com/38924118/119930647-7b4c7d80-bf88-11eb-8f2b-96df9d415f52.PNG)
 
-Testavimas #2: <br>
-Studentų skaičius: 1000000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 4662.62 ms <br>
-Skaitymas iš failo: 23420.7 ms <br>
-Vidurkių skaičiavimas: 135.874 ms <br>
-Medianų skaičiavimas: 539.867 ms <br>
-Rūšiavimas std::sort: 9517.64 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 1103.46 ms <br>
-Rašymas į failą: 6072.1 ms <br>
+# Testavimo rezultatai -O1 (1mil)
+![01_1mil](https://user-images.githubusercontent.com/38924118/119930664-856e7c00-bf88-11eb-94ec-2f2bb714ffbb.PNG)
 
-# Testavimo rezultatai (Class)
+# Testavimo rezultatai -O2 (100k)
+![02_100k](https://user-images.githubusercontent.com/38924118/119930687-90291100-bf88-11eb-9c56-faa76f641c6f.PNG)
 
-Testavimas #1: <br>
-Studentų skaičius: 100000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 426.902 ms <br>
-Skaitymas iš failo: 2176.76 ms <br>
-Vidurkių skaičiavimas: 8.3873 ms <br>
-Medianų skaičiavimas: 43.6382 ms <br>
-Rūšiavimas std::sort: 696.342 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 89.7869 ms <br>
-Rašymas į failą: 932.124 ms <br>
+# Testavimo rezultatai -O2 (1mil)
+![02_1mil](https://user-images.githubusercontent.com/38924118/119930718-a33be100-bf88-11eb-9c70-b79bd5142c09.PNG)
 
-Testavimas #2: <br>
-Studentų skaičius: 1000000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 4655.62 ms <br>
-Skaitymas iš failo: 22612.2 ms <br>
-Vidurkių skaičiavimas: 72.9808 ms <br>
-Medianų skaičiavimas: 402.969 ms <br>
-Rūšiavimas std::sort: 8108.67 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 922.702 ms <br>
-Rašymas į failą: 5470.57 ms <br>
+# Testavimo rezultatai -O3 (100k)
+![03_100k](https://user-images.githubusercontent.com/38924118/119930745-b2229380-bf88-11eb-98e4-1a6a97162c05.PNG)
 
-# Skirtingų -O flags testavimo rezultatai
-Testavimas #1: Flag'as default <br>
-Studentų skaičius: 1000000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 4655.62 ms <br>
-Skaitymas iš failo: 22612.2 ms <br>
-Vidurkių skaičiavimas: 72.9808 ms <br>
-Medianų skaičiavimas: 402.969 ms <br>
-Rūšiavimas std::sort: 8108.67 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 922.702 ms <br>
-Rašymas į failą: 5470.57 ms <br>
-
-Testavimas #2: Flag'as O1 <br>
-Studentų skaičius: 1000000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 4352.32 ms <br>
-Skaitymas iš failo: 20402.3 ms <br>
-Vidurkių skaičiavimas: 28.3 ms <br>
-Medianų skaičiavimas: 82.7385 ms <br>
-Rūšiavimas std::sort: 1088.37 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 364.91 ms <br>
-Rašymas į failą: 5072.79 ms <br>
-
-Testavimas #3: Flag'as O2 <br>
-Studentų skaičius: 1000000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 3964.53 ms <br>
-Skaitymas iš failo: 19912.3 ms <br>
-Vidurkių skaičiavimas: 40.6735 ms <br>
-Medianų skaičiavimas: 81.671 ms <br>
-Rūšiavimas std::sort: 1089.85 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 372.555 ms <br>
-Rašymas į failą: 5406.51 ms <br>
-
-Testavimas #4: Flag'as O3 <br>
-Studentų skaičius: 1000000 <br> 
-Namų darbų skaičius: 5 <br>
-Generavimas: 3981.19 ms <br>
-Skaitymas iš failo: 20625.6 ms <br>
-Vidurkių skaičiavimas: 23.3047 ms <br>
-Medianų skaičiavimas: 76.3007 ms <br>
-Rūšiavimas std::sort: 1061.17 ms <br>
-Studentų skirstymas į "kietekus" ir "lievakus": 324.437 ms <br>
-Rašymas į failą: 5102.32 ms <br>
+# Testavimo rezultatai -O3 (1mil)
+![03_1mil](https://user-images.githubusercontent.com/38924118/119930764-bf3f8280-bf88-11eb-9d62-4c99b952846a.PNG)
 
 # Release v1.2
 Pridėtas "<<" custom operatorius padedantis parašyti išrašymo funkcijas "švariau" ir labiau organizuotai.

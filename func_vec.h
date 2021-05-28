@@ -23,6 +23,7 @@ using std::ofstream;
 using std::ostream;
 using std::setprecision;
 using std::milli;
+using std::to_string;
 
 //inline ifstream infile("studentai10000.txt");
 //inline ofstream offile("res.txt");
@@ -31,6 +32,7 @@ class zmogus {
    public:
     string vardas;
     string pavarde;
+    virtual int test() = 0;
 };
 
 class mokinys : public zmogus {
@@ -44,11 +46,13 @@ class mokinys : public zmogus {
     void sortByCool(vector<mokinys> &k, vector<mokinys> &l, vector<mokinys> &p);
     void readFromFile(vector<mokinys> &p, string inputFileName);
     void writeEverything(vector<mokinys> k, vector<mokinys> l);
+    int test();
     friend ostream& operator<<(ostream& os, vector<mokinys> &vec);
 };
 
 bool compare(const mokinys &first, const mokinys &second);
 int numOfDigits(int number);
-void generateInputFile(int nOfNd, int nOfStudents);
+void generateInputFile(int nOfNd, int nOfStudents, string filename);
+bool checkFileExists(string filename);
 ostream& operator<<(ostream& os, vector<mokinys> &vec);
 #endif

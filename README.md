@@ -143,62 +143,78 @@ Su šiuo makefile programa pasileis su strategijos B implementacija.
 CPU: Intel(R) Core(TM) i5-7300HQ @ ~2.50GHz (4 CPUs), RAM: 8GB DD4-2666Mhz, SSD: SAMSUNG MZVLW128 1TB M.2
 
 # Testavimo rezultatai (Vector)(A)(100k)
-![vector_a_100k](https://user-images.githubusercontent.com/38924118/119930147-936fcd00-bf87-11eb-8d55-9269fd661d37.PNG)
+![vector_a_100k](https://user-images.githubusercontent.com/38924118/120754256-15766d80-c515-11eb-8eaf-0b69f7e2fa94.PNG)
+
 
 # Testavimo rezultatai (Vector)(A)(1mil)
-![vector_a_1mil](https://user-images.githubusercontent.com/38924118/119930198-a71b3380-bf87-11eb-8955-6b45fe82f80b.PNG)
+![vector_a_1mil](https://user-images.githubusercontent.com/38924118/120754271-1ad3b800-c515-11eb-89a3-2a160df8acb5.PNG)
+
 
 # Testavimo rezultatai (Vector)(A)(10mil)
-![vector_a_10mil](https://user-images.githubusercontent.com/38924118/119930239-b9956d00-bf87-11eb-9fbb-d034ac0976e1.PNG)
+![vector_a_10mil](https://user-images.githubusercontent.com/38924118/120754290-20310280-c515-11eb-8f0c-cecda9f12fff.PNG)
+
 
 # Testavimo rezultatai (Vector)(B)(100k)
-![vector_b_100k](https://user-images.githubusercontent.com/38924118/119930268-cc0fa680-bf87-11eb-8259-a6a9ba2a3974.PNG)
+![vector_b_100k](https://user-images.githubusercontent.com/38924118/120754374-42c31b80-c515-11eb-95fb-e8b7624d8d1b.PNG)
+
 
 # Testavimo rezultatai (Vector)(B)(1mil)
-![vector_b_1mil](https://user-images.githubusercontent.com/38924118/119930290-da5dc280-bf87-11eb-9245-ebb4ba043ffc.PNG)
+![vector_b_1mil](https://user-images.githubusercontent.com/38924118/120754404-48b8fc80-c515-11eb-99d1-74004649bf2b.PNG)
+
 
 # Testavimo rezultatai (Vector)(B)(10mil)
-![vector_b_10mil_nogenerate](https://user-images.githubusercontent.com/38924118/119930318-e5185780-bf87-11eb-8211-5f4d5cddca21.PNG)
+![vector_b_10mil](https://user-images.githubusercontent.com/38924118/120754418-4ce51a00-c515-11eb-87c3-26b516be718f.PNG)
+
 
 # Testavimo rezultatai (Deque)(A)(100k)
-![deque_a_100k](https://user-images.githubusercontent.com/38924118/119930396-08db9d80-bf88-11eb-90fc-a709dad679c5.PNG)
+![deque_a_100k](https://user-images.githubusercontent.com/38924118/120754429-53739180-c515-11eb-8a8e-e4ce1cc3b1ff.PNG)
+
 
 # Testavimo rezultatai (Deque)(A)(1mil)
-![deque_a_1mil](https://user-images.githubusercontent.com/38924118/119930444-1e50c780-bf88-11eb-9e96-a792098e8637.PNG)
+![deque_a_1mil](https://user-images.githubusercontent.com/38924118/120754450-5a020900-c515-11eb-853b-5c3153254fa1.PNG)
+
 
 # Testavimo rezultatai (Deque)(B)(100k)
-![deque_b_100k](https://user-images.githubusercontent.com/38924118/119930501-3a546900-bf88-11eb-8561-9bfbe43a7b92.PNG)
+![deque_b_100k](https://user-images.githubusercontent.com/38924118/120754464-61c1ad80-c515-11eb-93a2-bdda34cdfe57.PNG)
+
 
 # Testavimo rezultatai (Deque)(B)(1mil)
-![deque_b_1mil](https://user-images.githubusercontent.com/38924118/119930506-3de7f000-bf88-11eb-9dff-2f385a7c8dc2.PNG)
+![deque_b_1mil](https://user-images.githubusercontent.com/38924118/120754480-671ef800-c515-11eb-821f-ba591fd6a6d4.PNG)
+
 
 
 # Release v1.1
 Iš struktūrų pereita prie klasių. Palygintas programos laikas naudojant struktūras ir klases bei skirtingas O flags.
 
 # Struct laikai Vector(100k)
-![vector_a_100k](https://user-images.githubusercontent.com/38924118/119930147-936fcd00-bf87-11eb-8d55-9269fd661d37.PNG)
+![vector_a_100k](https://user-images.githubusercontent.com/38924118/120754256-15766d80-c515-11eb-8eaf-0b69f7e2fa94.PNG)
 
 # Struct laikai Vector(1mil)
-![vector_a_1mil](https://user-images.githubusercontent.com/38924118/119930198-a71b3380-bf87-11eb-8955-6b45fe82f80b.PNG)
+![vector_a_1mil](https://user-images.githubusercontent.com/38924118/120754271-1ad3b800-c515-11eb-89a3-2a160df8acb5.PNG)
 
 # Testavimo rezultatai -O1 (100k)
-![01_100k](https://user-images.githubusercontent.com/38924118/119930647-7b4c7d80-bf88-11eb-8f2b-96df9d415f52.PNG)
+![01_100k](https://user-images.githubusercontent.com/38924118/120754764-c846cb80-c515-11eb-8c86-b5b938554817.PNG)
+
 
 # Testavimo rezultatai -O1 (1mil)
-![01_1mil](https://user-images.githubusercontent.com/38924118/119930664-856e7c00-bf88-11eb-94ec-2f2bb714ffbb.PNG)
+![01_1mil](https://user-images.githubusercontent.com/38924118/120754779-cc72e900-c515-11eb-923d-96a1fc237140.PNG)
+
 
 # Testavimo rezultatai -O2 (100k)
-![02_100k](https://user-images.githubusercontent.com/38924118/119930687-90291100-bf88-11eb-9c56-faa76f641c6f.PNG)
+![02_100k](https://user-images.githubusercontent.com/38924118/120754799-d1379d00-c515-11eb-8f8f-12932126efcd.PNG)
+
 
 # Testavimo rezultatai -O2 (1mil)
-![02_1mil](https://user-images.githubusercontent.com/38924118/119930718-a33be100-bf88-11eb-9c70-b79bd5142c09.PNG)
+![02_1mil](https://user-images.githubusercontent.com/38924118/120754815-d694e780-c515-11eb-80d0-54f2716450d7.PNG)
+
 
 # Testavimo rezultatai -O3 (100k)
-![03_100k](https://user-images.githubusercontent.com/38924118/119930745-b2229380-bf88-11eb-98e4-1a6a97162c05.PNG)
+![03_100k](https://user-images.githubusercontent.com/38924118/120754835-db599b80-c515-11eb-8cb6-978e1e9b1e87.PNG)
+
 
 # Testavimo rezultatai -O3 (1mil)
-![03_1mil](https://user-images.githubusercontent.com/38924118/119930764-bf3f8280-bf88-11eb-9d62-4c99b952846a.PNG)
+![03_1mil](https://user-images.githubusercontent.com/38924118/120754916-f75d3d00-c515-11eb-953a-0bce3aad205d.PNG)
+
 
 # Release v1.2
 Pritaikytas "Rule of three" principas klasei "mokinys".

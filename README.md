@@ -143,7 +143,7 @@ Su šiuo makefile programa pasileis su strategijos B implementacija.
 CPU: Intel(R) Core(TM) i5-7300HQ @ ~2.50GHz (4 CPUs), RAM: 8GB DD4-2666Mhz, SSD: SAMSUNG MZVLW128 1TB M.2
 
 # Testavimo rezultatai (Vector)(A)(100k)
-![vector_a_100k](https://user-images.githubusercontent.com/38924118/120754256-15766d80-c515-11eb-8eaf-0b69f7e2fa94.PNG)
+![vectora100k](https://user-images.githubusercontent.com/38924118/120754256-15766d80-c515-11eb-8eaf-0b69f7e2fa94.PNG)
 
 
 # Testavimo rezultatai (Vector)(A)(1mil)

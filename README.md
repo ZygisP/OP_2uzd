@@ -348,14 +348,6 @@ Rašymas į failą: 5280.52 ms <br>
 # Release v1.2
 Pritaikytas "Rule of three" principas klasei "mokinys". Patobūlinta klasė, perrašytos skaitymo ir rašymo funkcijos.
 
-# Release v1.5
-Pridėta žmogaus klasė iš kurios klasė "mokinys" dabar yra derived.
-
-# Release v2.0
-Pridėta doxygen dokumentacija doc.rar archyve.
-
-atnaujintas README.md
-
 # INSTRUCTIONS
 1. git clone OP_2uzd [master] to your machine
 2. open the downloaded folder

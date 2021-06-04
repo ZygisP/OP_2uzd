@@ -201,7 +201,7 @@ Iš struktūrų pereita prie klasių. Palygintas programos laikas naudojant stru
 ![03_1mil](https://user-images.githubusercontent.com/38924118/119930764-bf3f8280-bf88-11eb-9d62-4c99b952846a.PNG)
 
 # Release v1.2
-Pridėtas "<<" custom operatorius padedantis parašyti išrašymo funkcijas "švariau" ir labiau organizuotai.
+Pritaikytas "Rule of three" principas klasei "mokinys".
 
 # Release v1.5
 Pridėta žmogaus klasė iš kurios klasė "mokinys" dabar yra derived.
